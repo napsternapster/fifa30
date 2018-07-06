@@ -74,6 +74,7 @@ class FifaLiveGame():
                     val.get('G') == 17]):
                 coefs.append(val)
 
+        print(coefs)
         if len(coefs) < 2:
             self._target_coef = -1
             return
