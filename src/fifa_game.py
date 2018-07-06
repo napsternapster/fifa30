@@ -88,4 +88,5 @@ class FifaLiveGame():
 
     def is_target(self):
         print(f"Halftime: {self.is_halftime()}")
+        print(f"Time: {self._time_in_seconds}")
         return self.is_halftime() and self._score in TARGET_SCORES
