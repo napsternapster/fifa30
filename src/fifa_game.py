@@ -58,9 +58,13 @@ class FifaLiveGame():
             return
 
         data = json.loads(json_data)
-        self._score = (data.get('Value').get('SC').get('FS').get('S1', 0), data.get('Value').get('SC').get('FS').get('S2', 0))
-        self._time = int(int(data.get('Value').get('SC').get('TS', 0)) / 60)
-        self._coef_data = data.get('Value').get('E')
+        try:
+            self._score = (data.get('Value').get('SC').get('FS').get('S1', 0), data.get('Value').get('SC').get('FS').get('S2', 0))
+            self._time = int(int(data.get('Value').get('SC').get('TS', 0)) / 60)
+            self._coef_data = data.get('Value').get('E')
+        except Exception as e:
+            print('Error in fill_data_by_id()')
+            return
 
     def fill_target_coef(self):
         if not self._coef_data:

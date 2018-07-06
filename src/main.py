@@ -34,7 +34,11 @@ if __name__ == "__main__":
             print(f"Found {len(new_games)} new games")
 
         for g in new_games:
-            g.fill_data_by_id()
+            try:
+                g.fill_data_by_id()
+            except Exception as e:
+                print('Error in fill_data_by_id')
+                continue
             g.fill_target_coef()
             print(g.target_coef)
             print(g.total)
@@ -43,7 +47,11 @@ if __name__ == "__main__":
                 del g
 
         for g in cur_games:
-            g.fill_data_by_id()
+            try:
+                g.fill_data_by_id()
+            except Exception as e:
+                print('Error in fill_data_by_id')
+                continue
             if g.is_target() and (g.id, g.teams) not in sended_games:
                 teams = g.teams
                 coef = g.target_coef
