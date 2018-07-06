@@ -73,7 +73,7 @@ if __name__ == "__main__":
                 cur_games.remove((g.id, g.teams))
                 cur_games_tuples.remove((g.id, g.teams))
                 continue
-            if not g.is_first_time():
+            if not g.is_second_half():
                 cur_games.remove((g.id, g.teams))
                 cur_games_tuples.remove((g.id, g.teams))
                 

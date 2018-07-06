@@ -45,6 +45,9 @@ class FifaLiveGame():
     def total(self):
         return self._total
 
+    def is_second_half(self):
+        return self._time >= 46
+
     def is_halftime(self):
         return any([self._data.get('SC').get('I') == 'Перерыв',
                     self._time_in_seconds in range(2701, 2850)])
