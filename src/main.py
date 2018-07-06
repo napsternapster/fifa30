@@ -73,8 +73,8 @@ if __name__ == "__main__":
 Кф: {coef} на {total}б
 Счёт на 45-й: {score[0]}:{score[1]}""")
                 sended_games.append((g.id, teams))
-                cur_games.remove((g.id, g.teams))
                 cur_games_tuples.remove((g.id, g.teams))
+                del g
                 continue
             if g.is_second_half() and g in cur_games:
                 print('Deleting')
