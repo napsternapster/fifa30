@@ -47,7 +47,9 @@ if __name__ == "__main__":
                 print(f"Deleting {g.teams} because coef == -1")
                 del g
 
+        
         for g in cur_games:
+            print(f"From main: {g.id}: {g.teams}")
             try:
                 g.fill_data_by_id()
             except Exception as e:
