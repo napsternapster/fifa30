@@ -31,6 +31,10 @@ class FifaLiveGame():
         return self._teams
 
     @property
+    def score(self):
+        return self._score
+
+    @property
     def target_coef(self):
         return self._target_coef
 

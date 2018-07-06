@@ -5,9 +5,11 @@ from collections import deque
 import get_url
 import get_data
 import init_games
+import send_to_chanell
 
 
 if __name__ == "__main__":
+    print("Starts working...")
     cur_games = deque(maxlen=10)
     cur_games_tuples = deque(maxlen=10)
     sended_games = deque(maxlen=10)
@@ -42,6 +44,8 @@ if __name__ == "__main__":
             g.fill_data_by_id()
             if g.is_target() and (g.id, g.teams) not in sended_games:
                 print(f"SENDING: {g.teams}: {g.target_coef}")
+                send_to_chanell.send_msg(f"""{g.teams}: {g.target_coef}
+Score: g.score """)
                 sended_games.append((g.id, g.teams))
         
         cur_games.extend(new_games)

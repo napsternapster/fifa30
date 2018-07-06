@@ -4,9 +4,6 @@ import json
 from requests_html import HTMLSession
 
 
-import get_url
-
-
 def get_live_data(cur_mirror):
     url = f"{cur_mirror}/LiveFeed/Get1x2_Zip?sports=85&count=1000&mode=4&"
     session = HTMLSession()
