@@ -59,10 +59,11 @@ if __name__ == "__main__":
                 total = g.total
                 league = g.league
                 print(f"Sending: {teams}: {coef}")
+                print(f"League: {league}")
                 msg = f"""Лига: {league}
 {teams[0]} - {teams[1]}
 Коэфф на 30-й минуте: {coef}
-Тотал: {total}
+Тотал: {total}б
 Счёт на 45-й: {score[0]}:{score[1]}"""
                 send_to_chanell.send_msg(msg)
                 sended_games.append((g.id, teams))

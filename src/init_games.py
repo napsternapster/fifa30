@@ -1,8 +1,5 @@
 from fifa_game import FifaLiveGame
 
-
-
-
 def init_games_from_data(data, cur_games, cur_mirror):
     events = data.get('Value')
     first_time_live_events = (event for event in events if is_live(event) and is_first_time(event))
@@ -28,6 +25,7 @@ def init_games_from_data(data, cur_games, cur_mirror):
     return games
 
 def get_league(event):
+    print(event.get('LE'))
     return event.get('LE')
 
 def get_teams(event):

@@ -1,8 +1,6 @@
 import json
 
-
 from requests_html import HTMLSession
-
 
 TARGET_SCORES = [
         (0, 0),
