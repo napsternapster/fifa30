@@ -14,12 +14,13 @@ TARGET_SCORES = [
 
 class FifaLiveGame():
 
-    def __init__(self, id, teams, score, time, data, cur_mirror):
+    def __init__(self, id, league, teams, score, time, data, cur_mirror):
         self._id = id
         self._data = data
         self._time = time
         self._teams = teams
         self._score = score
+        self._league = league
         self._cur_mirror = cur_mirror
 
     @property
@@ -33,6 +34,10 @@ class FifaLiveGame():
     @property
     def score(self):
         return self._score
+
+    @property
+    def league(self):
+        return self._league
 
     @property
     def target_coef(self):
@@ -58,13 +63,9 @@ class FifaLiveGame():
             return
 
         data = json.loads(json_data)
-        try:
-            self._score = (data.get('Value').get('SC').get('FS').get('S1', 0), data.get('Value').get('SC').get('FS').get('S2', 0))
-            self._time = int(int(data.get('Value').get('SC').get('TS', 0)) / 60)
-            self._coef_data = data.get('Value').get('E')
-        except Exception as e:
-            print('Error in fill_data_by_id()')
-            return
+        self._score = (data.get('Value').get('SC').get('FS').get('S1', 0), data.get('Value').get('SC').get('FS').get('S2', 0))
+        self._time = int(int(data.get('Value').get('SC').get('TS', 0)) / 60)
+        self._coef_data = data.get('Value').get('E')
 
     def fill_target_coef(self):
         if not self._coef_data:

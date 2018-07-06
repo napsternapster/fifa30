@@ -56,9 +56,15 @@ if __name__ == "__main__":
                 teams = g.teams
                 coef = g.target_coef
                 score = g.score
-                print(f"SENDING: {teams}: {coef}")
-                send_to_chanell.send_msg(f"""{teams[0]} - {teams[1]}: {coef}
-Score: {score[0]}:{score[1]}""")
+                total = g.total
+                league = g.league
+                print(f"Sending: {teams}: {coef}")
+                msg = f"""Лига: {league}
+{teams[0]} - {teams[1]}
+Коэфф на 30-й минуте: {coef}
+Тотал: {total}
+Счёт на 45-й: {score[0]}:{score[1]}"""
+                send_to_chanell.send_msg(msg)
                 sended_games.append((g.id, teams))
         
         cur_games.extend(new_games)
