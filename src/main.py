@@ -78,8 +78,8 @@ if __name__ == "__main__":
                 continue
             if g.is_second_half() and g in cur_games:
                 print('Deleting')
-                del g
                 cur_games_tuples.remove((g.id, g.teams))
+                del g
                 
         print('Extending')
         print(len(new_games))
