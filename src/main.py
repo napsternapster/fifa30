@@ -76,9 +76,9 @@ if __name__ == "__main__":
                 cur_games.remove((g.id, g.teams))
                 cur_games_tuples.remove((g.id, g.teams))
                 continue
-            if g.is_second_half() and (g.id, g.teams) in cur_games:
+            if g.is_second_half() and g in cur_games:
                 print('Deleting')
-                cur_games.remove((g.id, g.teams))
+                del g
                 cur_games_tuples.remove((g.id, g.teams))
                 
         print('Extending')
