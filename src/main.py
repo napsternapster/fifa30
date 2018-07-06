@@ -70,6 +70,12 @@ if __name__ == "__main__":
 Кф: {coef} на {total}б
 Счёт на 45-й: {score[0]}:{score[1]}""")
                 sended_games.append((g.id, teams))
-            # if not g.is_first_time():
+                cur_games.remove((g.id, g.teams))
+                cur_games_tuples.remove((g.id, g.teams))
+                continue
+            if not g.is_first_time():
+                cur_games.remove((g.id, g.teams))
+                cur_games_tuples.remove((g.id, g.teams))
+                
         
         cur_games.extend(new_games)

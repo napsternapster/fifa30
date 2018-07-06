@@ -42,7 +42,7 @@ def is_live(event):
     return event.get('SC').get('CPS')
         
 def is_first_time(event):
-    return get_minute(event) <= 45
+    return get_minute(event) <= 46
 
 def is_target_league(league):
     return "Champions League" in league or "Europe League" in league
