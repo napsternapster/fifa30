@@ -53,7 +53,7 @@ if __name__ == "__main__":
             except Exception as e:
                 print('Error in fill_data_by_id')
                 continue
-            if g.is_target() and (g.id, g.teams) not in sended_games and g.target_coef > 1:
+            if g.is_target() and (g.id, g.teams) not in sended_games and g.target_coef >= 1.5:
                 teams = g.teams
                 coef = g.target_coef
                 score = g.score
@@ -61,15 +61,13 @@ if __name__ == "__main__":
                 league = g.league
                 print(f"Sending: {teams}: {coef}")
                 print(f"League: {league}")
-                print(f"""Лига: {league}
+                print(f"""{league}
 {teams[0]} - {teams[1]}
-Коэфф на 30-й минуте: {coef}
-Тотал: {total}б
+Кф: {coef} на {total}б
 Счёт на 45-й: {score[0]}:{score[1]}""")
-                send_to_chanell.send_msg(f"""Лига: {league}
+                send_to_chanell.send_msg(f"""{league}
 {teams[0]} - {teams[1]}
-Коэфф на 30-й минуте: {coef}
-Тотал: {total}б
+Кф: {coef} на {total}б
 Счёт на 45-й: {score[0]}:{score[1]}""")
                 sended_games.append((g.id, teams))
             # if not g.is_first_time():
