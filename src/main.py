@@ -44,8 +44,8 @@ if __name__ == "__main__":
             g.fill_data_by_id()
             if g.is_target() and (g.id, g.teams) not in sended_games:
                 print(f"SENDING: {g.teams}: {g.target_coef}")
-                send_to_chanell.send_msg(f"""{g.teams}: {g.target_coef}
-Score: g.score """)
+                send_to_chanell.send_msg(f"""{g.teams[0]} - {g.teams[1]}: {g.target_coef}
+Score: {g.score} """)
                 sended_games.append((g.id, g.teams))
         
         cur_games.extend(new_games)
