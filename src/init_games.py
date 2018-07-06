@@ -18,6 +18,8 @@ def init_games_from_data(data, cur_games, cur_mirror):
         teams = get_teams(event)
         time = get_minute(event)
         
+        print(id, teams)
+        print(cur_games)
         if is_30s_minutes(event) and (id, teams) not in cur_games:
             print(time)
             games.append(FifaLiveGame(id, teams, league, score, time, event, cur_mirror))
