@@ -25,7 +25,6 @@ def init_games_from_data(data, cur_games, cur_mirror):
     return games
 
 def get_league(event):
-    print(event.get('LE'))
     return event.get('LE')
 
 def get_teams(event):
