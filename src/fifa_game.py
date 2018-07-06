@@ -39,7 +39,6 @@ class FifaLiveGame():
                     self._time == 45])
 
     def fill_data_by_id(self):
-        # TODO get coefs of the total second row total more
         url = f"{self._cur_mirror}/LiveFeed/GetGameZip?id={self._id}"
 
         session = HTMLSession()
@@ -67,10 +66,11 @@ class FifaLiveGame():
                     val.get('G') == 17]):
                 coefs.append(val)
 
-        # print(coefs)
         if len(coefs) < 2:
             self._target_coef = -1
             return
 
         self._target_coef = coefs[1].get('C')
 
+    def is_target(self):
+        return self.is_halftime() and self._score in TARGET_SCORES

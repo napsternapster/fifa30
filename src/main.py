@@ -13,10 +13,10 @@ if __name__ == "__main__":
     sended_games = deque(maxlen=10)
     while True:
         cur_mirror = get_url.get_current_mirror()
-        # if not cur_mirror:
-        #     print("Will sleep 10 second because of url")
-        #     time.sleep(10)
-        #     continue
+        if not cur_mirror:
+            print("Will sleep 10 second because of url")
+            time.sleep(10)
+            continue
     
         data = get_data.get_live_data(cur_mirror)
         if not data:
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
         for g in cur_games:
             g.fill_data_by_id()
-            if g.is_halftime() and (g.id, g.teams) not in sended_games:
+            if g.is_target() and (g.id, g.teams) not in sended_games:
                 print(f"SENDING: {g.teams}: {g.target_coef}")
                 sended_games.append((g.id, g.teams))
         
