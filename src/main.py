@@ -55,6 +55,7 @@ if __name__ == "__main__":
             except Exception as e:
                 print('Error in fill_data_by_id')
                 continue
+            print(f"Is secondhalf: {g.is_second_half()}, Time: {g.time} InSecs: {g._time_in_seconds}")
             if g.is_target() and (g.id, g.teams) not in sended_games and g.target_coef >= 1.5:
                 teams = g.teams
                 coef = g.target_coef

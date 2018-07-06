@@ -30,6 +30,10 @@ class FifaLiveGame():
         return self._teams
 
     @property
+    def time(self):
+        return self._time
+
+    @property
     def score(self):
         return self._score
 
