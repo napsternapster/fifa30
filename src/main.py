@@ -27,7 +27,7 @@ if __name__ == "__main__":
             continue
 
         for g in cur_games:
-            if (g.id, g.teams) not in cur_games:
+            if (g.id, g.teams) not in cur_games_tuples:
                 cur_games_tuples.append((g.id, g.teams))
 
         new_games = init_games.init_games_from_data(data, cur_games_tuples, cur_mirror)
