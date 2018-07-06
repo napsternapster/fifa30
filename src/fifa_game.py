@@ -47,7 +47,7 @@ class FifaLiveGame():
 
     def is_halftime(self):
         return any([self._data.get('SC').get('I') == 'Перерыв',
-                    self._time == 45])
+                    self._time_in_seconds in range(2701, 2850)])
 
     def fill_data_by_id(self):
         url = f"{self._cur_mirror}/LiveFeed/GetGameZip?id={self._id}"
@@ -63,6 +63,7 @@ class FifaLiveGame():
         data = json.loads(json_data)
         self._score = (data.get('Value').get('SC').get('FS').get('S1', 0), data.get('Value').get('SC').get('FS').get('S2', 0))
         self._time = int(int(data.get('Value').get('SC').get('TS', 0)) / 60)
+        self._time_in_seconds = int(data.get('Value').get('SC').get('TS', 0))
         self._coef_data = data.get('Value').get('E')
 
     def fill_target_coef(self):

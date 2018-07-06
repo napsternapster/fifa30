@@ -32,6 +32,12 @@ def get_league(event):
 def get_teams(event):
     return (event.get('O1'), event.get('O2'))
 
+def get_minute(event):
+    return int(int(event.get('SC').get('TS', 0)) / 60)
+
+def get_seconds(event):
+    return int(event.get('SC').get('TS', 0))
+
 def is_live(event):
     return event.get('SC').get('CPS')
         
@@ -40,9 +46,6 @@ def is_first_time(event):
 
 def is_target_league(league):
     return "Champions League" in league or "Europe League" in league
-
-def get_minute(event):
-    return int(int(event.get('SC').get('TS', 0)) / 60)
 
 def is_30s_minutes(event):
     return str(get_minute(event))[0] == '3' and len(str(get_minute(event))) > 1
