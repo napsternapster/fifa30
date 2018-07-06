@@ -72,6 +72,6 @@ if __name__ == "__main__":
 Тотал: {total}б
 Счёт на 45-й: {score[0]}:{score[1]}""")
                 sended_games.append((g.id, teams))
-            if not g.is_first_time():
+            # if not g.is_first_time():
         
         cur_games.extend(new_games)
