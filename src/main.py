@@ -32,10 +32,12 @@ if __name__ == "__main__":
         new_games = init_games.init_games_from_data(data, cur_games_tuples, cur_mirror)
         if len(new_games) > 0:
             print(f"Found {len(new_games)} new games")
+
         for g in new_games:
             g.fill_data_by_id()
             g.fill_target_coef()
             print(g.target_coef)
+            print(g.total)
             if g.target_coef == -1:
                 print(f"Deleting {g.teams} because coef == -1")
                 del g

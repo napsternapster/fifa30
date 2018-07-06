@@ -38,6 +38,10 @@ class FifaLiveGame():
     def target_coef(self):
         return self._target_coef
 
+    @property
+    def total(self):
+        return self._total
+
     def is_halftime(self):
         return any([self._data.get('SC').get('I') == 'Перерыв',
                     self._time == 45])
@@ -75,6 +79,7 @@ class FifaLiveGame():
             return
 
         self._target_coef = coefs[1].get('C')
+        self._total = coefs[1].get('P')
 
     def is_target(self):
         return self.is_halftime() and self._score in TARGET_SCORES
