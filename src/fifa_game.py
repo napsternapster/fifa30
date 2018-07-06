@@ -87,4 +87,5 @@ class FifaLiveGame():
         self._total = coefs[1].get('P')
 
     def is_target(self):
+        print(f"Halftime: {self.is_halftime()}")
         return self.is_halftime() and self._score in TARGET_SCORES
