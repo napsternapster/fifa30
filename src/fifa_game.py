@@ -10,7 +10,6 @@ TARGET_SCORES = [
         ]
 
 
-
 class FifaLiveGame():
 
     def __init__(self, id, league, teams, score, time, data, cur_mirror):
@@ -79,7 +78,6 @@ class FifaLiveGame():
             self._target_coef = -1
             return
 
-        print(self.teams)
         coefs = []
         for val in self._coef_data:
             if all([val.get('T') == 9,

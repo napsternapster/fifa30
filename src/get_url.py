@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 
 
+
 def get_current_mirror():
     """
     Returns current available mirror of the 1xbet.com, 

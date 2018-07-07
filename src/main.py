@@ -41,21 +41,17 @@ if __name__ == "__main__":
                 print('Error in fill_data_by_id')
                 continue
             g.fill_target_coef()
-            print(g.target_coef)
-            print(g.total)
             if g.target_coef == -1:
                 print(f"Deleting {g.teams} because coef == -1")
                 del g
 
         
         for g in cur_games:
-            print(f"From main: {g.id}: {g.teams}")
             try:
                 g.fill_data_by_id()
             except Exception as e:
                 print('Error in fill_data_by_id')
                 continue
-            print(f"Is secondhalf: {g.is_second_half()}, Time: {g.time} InSecs: {g._time_in_seconds}")
             if g.is_target() and (g.id, g.teams) not in sended_games and g.target_coef >= 1.5:
                 teams = g.teams
                 coef = g.target_coef
