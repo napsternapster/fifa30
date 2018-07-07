@@ -10,6 +10,7 @@ TARGET_SCORES = [
         ]
 
 
+
 class FifaLiveGame():
 
     def __init__(self, id, league, teams, score, time, data, cur_mirror):
