@@ -68,7 +68,6 @@ if __name__ == "__main__":
                 del g
                 continue
             if g.is_second_half() and g in cur_games:
-                print('Deleting')
                 cur_games_tuples.remove((g.id, g.teams))
                 del g
                 
