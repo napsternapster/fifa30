@@ -85,7 +85,6 @@ class FifaLiveGame():
                     val.get('G') == 17]):
                 coefs.append(val)
 
-        print(coefs)
         if len(coefs) < 2:
             self._target_coef = -1
             return
@@ -94,6 +93,4 @@ class FifaLiveGame():
         self._total = coefs[1].get('P')
 
     def is_target(self):
-        print(f"Halftime: {self.is_halftime()}")
-        print(f"Time: {self._time_in_seconds}")
         return self.is_halftime() and self._score in TARGET_SCORES

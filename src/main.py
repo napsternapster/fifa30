@@ -10,9 +10,9 @@ import send_to_chanell
 
 if __name__ == "__main__":
     print("Starts working...")
-    cur_games = deque(maxlen=10)
-    cur_games_tuples = deque(maxlen=10)
-    sended_games = deque(maxlen=10)
+    cur_games = deque(maxlen=3)
+    cur_games_tuples = deque(maxlen=3)
+    sended_games = deque(maxlen=3)
     while True:
         cur_mirror = get_url.get_current_mirror()
         if not cur_mirror:
@@ -63,11 +63,6 @@ if __name__ == "__main__":
                 total = g.total
                 league = g.league
                 print(f"Sending: {teams}: {coef}")
-                print(f"League: {league}")
-                print(f"""{league}
-{teams[0]} - {teams[1]}
-Кф: {coef} на {total}б
-Счёт на 45-й: {score[0]}:{score[1]}""")
                 send_to_chanell.send_msg(f"""{league}
 {teams[0]} - {teams[1]}
 Кф: {coef} на {total}б
@@ -81,7 +76,4 @@ if __name__ == "__main__":
                 cur_games_tuples.remove((g.id, g.teams))
                 del g
                 
-        print('Extending')
-        print(len(new_games))
-        print(len(cur_games))
         cur_games.extend(new_games)
