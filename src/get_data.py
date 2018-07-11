@@ -1,6 +1,7 @@
-import json 
+import json
 
 from requests_html import HTMLSession
+
 
 def get_live_data(cur_mirror):
     url = f"{cur_mirror}/LiveFeed/Get1x2_Zip?sports=85&count=1000&mode=4&"

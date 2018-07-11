@@ -19,7 +19,7 @@ if __name__ == "__main__":
             print("Will sleep 10 second because of url")
             time.sleep(10)
             continue
-    
+
         data = get_data.get_live_data(cur_mirror)
         if not data:
             print("Sleep")
@@ -45,7 +45,6 @@ if __name__ == "__main__":
                 print(f"Deleting {g.teams} because coef == -1")
                 del g
 
-        
         for g in cur_games:
             try:
                 g.fill_data_by_id()
@@ -70,5 +69,5 @@ if __name__ == "__main__":
             if g.is_second_half() and g in cur_games:
                 cur_games_tuples.remove((g.id, g.teams))
                 del g
-                
+
         cur_games.extend(new_games)
