@@ -7,9 +7,9 @@ def get_current_mirror():
     first try to redirects, if fails, try to use google
     """
     session = HTMLSession()
-    url = 'http://1xstavka.ru'
+    url = 'https://1xstavka.ru'
     try:
-        return session.get('http://1xstavka.ru', timeout=10).url.split('?')[0]
+        return session.get('https://1xstavka.ru', timeout=10).url.split('?')[0]
     except Exception as e:
         url = 'https://www.google.ru/search?&q=1xbet.com'
         try:

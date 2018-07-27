@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from requests_html import HTMLSession
 
@@ -12,7 +13,7 @@ TARGET_SCORES = [
 
 class FifaLiveGame():
 
-    def __init__(self, id, league, teams, score, time, data, cur_mirror):
+    def __init__(self, id=0, league=None, teams=None, score='0-0', time=0, data=None, cur_mirror='http://1xstavka.ru'):
         self._id = id
         self._data = data
         self._time = time
