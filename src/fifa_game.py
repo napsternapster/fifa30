@@ -64,6 +64,7 @@ class FifaLiveGame():
         try:
             json_data = session.get(url, timeout=10).text
         except Exception as e:
+            print(e)
             print('Exception while getting data by id.')
             self._coef_data = []
             return

@@ -60,6 +60,7 @@ if __name__ == "__main__":
             try:
                 g.fill_data_by_id()
             except Exception as e:
+                print(e)
                 print('Error in fill_data_by_id')
                 continue
             if g.is_target() and (g.id, g.teams) not in sended_games and g.target_coef >= 1.5:
