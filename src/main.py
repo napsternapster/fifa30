@@ -23,6 +23,7 @@ if __name__ == "__main__":
     sended_games = deque(maxlen=3)
     while True:
         cur_time = datetime.now().time()
+        print(cur_time.hour)
         if cur_time.hour + 3 == 0:
             print(f"Current hour: {cur_time.hour}")
         if cur_time.hour + 3 == 0 and cur_time.minute in range(0, 20):
