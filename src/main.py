@@ -23,9 +23,9 @@ if __name__ == "__main__":
     sended_games = deque(maxlen=3)
     while True:
         cur_time = datetime.now().time()
-        if cur_time.hour + 3 == 0:
+        if cur_time.hour + 3 == 24:
             print(f"Current hour: {cur_time.hour}")
-        if cur_time.hour + 3 == 0 and cur_time.minute in range(0, 20):
+        if cur_time.hour + 3 == 24 and cur_time.minute in range(0, 20):
             leagues_games_cnt = dict.fromkeys(leagues_games_cnt, 0)
         cur_mirror = get_url.get_current_mirror()
         if not cur_mirror:
